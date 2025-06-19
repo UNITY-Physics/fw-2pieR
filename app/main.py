@@ -8,7 +8,7 @@ import pandas as pd
 from nibabel.affines import apply_affine
 import ants
  
-def calculateHeadCircumference(input, subject_label, session_label, patientSex, age):
+def calculateHeadCircumference(input, subject_label, session, session_label, sex, age):
     """
     Calculate head circumference from NIfTI files in a specified directory.
     This function processes NIfTI files, registers them to a template, extracts contours,
@@ -120,7 +120,7 @@ def calculateHeadCircumference(input, subject_label, session_label, patientSex, 
             'subject': subject_label,
             'session': session_label,
             'age': age,
-            'sex': patientSex,
+            'sex': sex,
             'mri_estimated_hc_cm': circumference_cm_native,
         })
 
@@ -134,6 +134,12 @@ def calculateHeadCircumference(input, subject_label, session_label, patientSex, 
     hc_df = hc_df[hc_df['mri_estimated_hc_cm'] > 0]
     hc_df.to_csv(index=False, path_or_buf = out_dir + '/' + subject_label + '-mri_estimated_hc_cm.csv')
     print("\n✅ Saved head circumference estimates to 'head_circumference_estimates_only.csv'")
+
+
+    # Save session metadata
+    ses_info = session.info
+    ses_info["estimated_hc_cm"] = circumference_cm_native
+    session.update_info(ses_info)
 
     # Return 0 if successful
     e_code = 0

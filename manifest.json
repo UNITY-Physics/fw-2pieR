@@ -1,5 +1,5 @@
 {
-  "author": "Doug Dean III, Niall Bourke",
+  "author": "Chiara Casella, Jonathan O'Muircheartaigh, Niall Bourke",
   "cite": "",
   "command": "bash /flywheel/v0/start.sh",
   "config": {},
@@ -27,7 +27,7 @@
     },
     "gear-builder": {
       "category": "analysis",
-      "image": "flywheel/circumference:0.0.10"
+      "image": "flywheel/circumference:0.0.11"
     },
     "kcl-app-binary": "app/main.py",
     "kcl-app-modalities": [
@@ -68,5 +68,5 @@
   "name": "circumference",
   "source": "",
   "url": "",
-  "version": "0.0.10"
+  "version": "0.0.11"
 }
