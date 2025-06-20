@@ -28,7 +28,7 @@ def calculateHeadCircumference(input, subject_label, session, session_label, sex
     os.makedirs(work_dir, exist_ok=True)
     
     # === Use fixed template and slice index (12M) ===
-    template_path = '/flywheel/v0/app/templates/template_12M.nii.gz'
+    template_path = '/flywheel/v0/app/templates/template_12M_head.nii.gz'
     z_index = 44
     
     all_results = []
