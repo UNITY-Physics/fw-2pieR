@@ -27,7 +27,7 @@
     },
     "gear-builder": {
       "category": "analysis",
-      "image": "flywheel/circumference:0.0.12"
+      "image": "flywheel/circumference:0.0.14"
     },
     "kcl-app-binary": "app/main.py",
     "kcl-app-modalities": [
@@ -54,7 +54,7 @@
   "inputs": {
     "api-key": {
       "base": "api-key",
-      "read-only": true
+      "read-only": false
     },
     "input": {
       "base": "file",
@@ -68,5 +68,5 @@
   "name": "circumference",
   "source": "",
   "url": "",
-  "version": "0.0.12"
+  "version": "0.0.14"
 }

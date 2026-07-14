@@ -121,7 +121,7 @@ def calculateHeadCircumference(input, subject_label, session, session_label, sex
             'session': session_label,
             'age': age,
             'sex': sex,
-            'mri_estimated_hc_cm': circumference_cm_native,
+            'childTimepointHC_MRI_cm': circumference_cm_native,
         })
 
         print(f"✅ Estimated HC: {circumference_cm_native:.2f} cm")
@@ -131,14 +131,14 @@ def calculateHeadCircumference(input, subject_label, session, session_label, sex
     
     # === Save results ===
     hc_df = pd.DataFrame(all_results)
-    hc_df = hc_df[hc_df['mri_estimated_hc_cm'] > 0]
-    hc_df.to_csv(index=False, path_or_buf = out_dir + '/' + subject_label + '-mri_estimated_hc_cm.csv')
+    hc_df = hc_df[hc_df['childTimepointHC_MRI_cm'] > 0]
+    hc_df.to_csv(index=False, path_or_buf = out_dir + '/' + subject_label + '-childTimepointHC_MRI_cm.csv')
     print("\n✅ Saved head circumference estimates to 'head_circumference_estimates_only.csv'")
 
 
     # Save session metadata
     ses_info = session.info
-    ses_info["estimated_hc_cm"] = circumference_cm_native
+    ses_info["childTimepointHC_MRI_cm"] = circumference_cm_native
     session.update_info(ses_info)
 
     # Return 0 if successful
